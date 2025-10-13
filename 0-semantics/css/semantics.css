@@ -1,0 +1,20 @@
+span#pseudo-link {
+  color: blue;
+  text-decoration: underline;
+}
+
+div.big {
+  font-size: larger;
+}
+
+div.small {
+  font-size: small;
+}
+
+h2 {
+  font-size: xx-small;
+}
+
+em {
+  text-decoration: line-through;
+}
