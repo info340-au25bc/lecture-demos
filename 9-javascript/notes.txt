@@ -1,0 +1,10 @@
+Original WAT: https://www.destroyallsoftware.com/talks/wat
+Dylan Beattie's WAT: https://www.youtube.com/watch?v=MykDCoBujuU
+
+See the following for differences between `{} + {}` in devtools vs. node:
+* https://stackoverflow.com/questions/17268468/why-is-nan-only-on-the-client-side-why-not-in-node-js
+* https://stackoverflow.com/questions/26347326/when-does-js-interpret-as-an-empty-block-instead-of-an-empty-object
+
+Summary: Node adds parens around all statements before running: https://github.com/nodejs/node-v0.x-archive/commit/b45698e67629a894cc005efba5c39d0e8adae1b0#lib/repl.js
+This basically makes it so that a repl line starting with `{` is always interpreted as a statement and never as a code block.
+
