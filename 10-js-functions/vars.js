@@ -1,7 +1,5 @@
-function vars(a) {
-  let b = 42;
-  b = a;
-  console.log(b);
+function vars(b) {
+  b;
 }
 
-vars();
+vars()
