@@ -1,7 +1,7 @@
-export default function double(n) {
+function double(n) {
   return n * 2;
 }
 
-export function cube(n) {
+function cube(n) {
   return n * n * n;
 }
