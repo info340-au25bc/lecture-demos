@@ -1,6 +1,8 @@
-const myFancyVariable = "Important Data!";
+"use strict";
+
+let myFancyVariable = "Important Data!";
 
 // Should this work?
 myFncyVaraible = "Different data!";
 
-console.log(myFancyVariable);
+console.log(myFncyVaraible);

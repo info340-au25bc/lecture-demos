@@ -1,3 +1,5 @@
+"use strict";
+
 function print_x() {
   str = "Hi class!";
   console.log(str);
