@@ -9,6 +9,7 @@ export default function App() {
     { id: 3, user: 'Alice', text: 'How are things?', timestamp: Date.now() - 1000 * 60 * 30 }
   ])
 
+  // Bug in this function here
   function sendMessage(text) {
     const nextId = messages.length + 1
     const msg = { id: nextId, user: 'You', text, timestamp: Date.now() }

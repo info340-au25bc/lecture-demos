@@ -3,12 +3,24 @@ export default function MessageList(props) {
 
   function toggleEditInput(event) {
     const input = event.target.parentNode.querySelector('input');
-    if (!input) return;
-    input.style.visibility =
-      input.style.visibility === 'hidden' ? 'visible' : 'hidden';
-    if (input.style.visibility !== 'hidden') input.focus();
+    if (!input) {
+      return
+    };
+
+    if (input.style.visibility === 'hidden') {
+      input.style.visibility = 'visible';
+    } else {
+      input.style.visibility = 'hidden';
+    }
+
+    if (input.style.visibility !== 'hidden') {
+      input.focus();
+    };
   }
 
+  // Two bugs somewhere in this return statement
+  // First one talked about in lecture.
+  // LOOK FOR THE SECOND ONE ONLY AFTER ADDING A DELETE BUTTON
   return (
     <div className="chat-window">
       {messages.map((m, index) => (
