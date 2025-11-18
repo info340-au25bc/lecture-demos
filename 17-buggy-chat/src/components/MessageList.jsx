@@ -1,5 +1,5 @@
 export default function MessageList(props) {
-  const { messages } = props;
+  const { messages, onDelete } = props;
 
   function toggleEditInput(event) {
     const input = event.target.parentNode.querySelector('input');
@@ -19,16 +19,25 @@ export default function MessageList(props) {
   }
 
   // Two bugs somewhere in this return statement
-  // First one talked about in lecture.
-  // LOOK FOR THE SECOND ONE ONLY AFTER ADDING A DELETE BUTTON
+  // First one to be talked about in W/Th lecture.
+  //
+  // (3) LOOK FOR THE SECOND ONE ONLY AFTER ADDING A DELETE BUTTON
   return (
     <div className="chat-window">
       {messages.map((m, index) => (
         <div className="message" key={index}>
+          <button
+            aria-label="Delete message"
+            onClick={() => onDelete(m.id)}
+            className="delete-btn"
+          >
+            X
+          </button>
+
           <strong>{m.user}:</strong> {m.text}
 
           <div>
-            <button className="edit-btn" onClick={toggleEditInput(e)}>Edit</button>
+            <button className="edit-btn" onClick={toggleEditInput}>Edit</button>
             <input type="text" style={{ visibility: 'hidden' }} defaultValue={m.text} />
           </div>
         </div>

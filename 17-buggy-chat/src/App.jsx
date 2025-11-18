@@ -9,7 +9,7 @@ export default function App() {
     { id: 3, user: 'Alice', text: 'How are things?', timestamp: Date.now() - 1000 * 60 * 30 }
   ])
 
-  // Bug in this function here
+  // (2) Bug in this function here
   function sendMessage(text) {
     const nextId = messages.length + 1
     const msg = { id: nextId, user: 'You', text, timestamp: Date.now() }
@@ -17,10 +17,14 @@ export default function App() {
     setMessages(messages)
   }
 
+  function deleteMessage(messageId) {
+    setMessages(messages.filter(m => m.id !== messageId));
+  }
+
   return (
     <div className="app">
       <h1>Simple Chat</h1>
-      <MessageList messages={messages} />
+      <MessageList messages={messages} onDelete={deleteMessage} />
       <ComposeMessage onSend={sendMessage} />
     </div>
   )

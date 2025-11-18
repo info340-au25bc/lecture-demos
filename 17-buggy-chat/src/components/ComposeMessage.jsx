@@ -4,7 +4,7 @@ export default function ComposeMessage(props) {
   const { onSend } = props;
   const [text, setText] = useState('')
 
-  // Bug in this function
+  // (1) Bug in this function
   function handleSubmit(e) {
     e.preventDefault()
     if (!text) return

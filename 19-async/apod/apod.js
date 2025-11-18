@@ -10,6 +10,7 @@ const API_KEY = "DEMO_KEY";
 function init() {
   id("apod-btn").addEventListener("click", fetchAPOD);
 }
+init();
 
 /**
  * Function to start the ajax fetch call to APOD API once the button is hit.
