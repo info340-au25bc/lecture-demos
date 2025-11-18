@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { useParams } from "react-router";
 
 function UserProfile({ user = {} }) {
+  const urlParams = useParams();
+  console.log(urlParams);
+
   const {
-    name = "Anonymous",
+    name = urlParams.userId || "Anonymous",
     avatar = "https://via.placeholder.com/96",
     email,
     location,
@@ -49,16 +51,6 @@ function UserProfile({ user = {} }) {
       </div>
     </div>
   );
-};
-
-UserProfile.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    avatar: PropTypes.string,
-    email: PropTypes.string,
-    location: PropTypes.string,
-    bio: PropTypes.string,
-  }),
 };
 
 export default UserProfile;

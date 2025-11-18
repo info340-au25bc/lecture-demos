@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import MessageList from './components/MessageList'
-import ComposeMessage from './components/ComposeMessage'
+
+import UserProfile from './components/UserProfile'
+
+import { Link, Route, Routes } from 'react-router';
+import ChatPage from './components/ChatPage';
+import PageNotFound from './components/PageNotFound';
 
 export default function App() {
   const [messages, setMessages] = useState([
@@ -31,10 +35,18 @@ export default function App() {
   return (
     <div className="app">
       <h1>Simple Chat</h1>
-      <MessageList messages={messages} onDelete={deleteMessage} />
-      <ComposeMessage onSend={sendMessage} />
+      <Routes>
+        <Route path="user" element={<UserProfile />}>
+          <Route path=":userId" element={<UserProfile />} />
+        </Route>
+        <Route index element={<ChatPage messages={messages}
+                                        deleteMessage={deleteMessage}
+                                        sendMessage={sendMessage} />} />
+        <Route path="*" element={< PageNotFound />} />
+      </Routes>
+
       <div className="user">
-        <a href=""><img src={currentUser.image} /></a>
+        <Link to="user"><img src={currentUser.image} /></Link>
       </div>
     </div>
   )
