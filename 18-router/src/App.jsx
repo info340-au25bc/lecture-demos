@@ -1,10 +1,8 @@
 import { useState } from 'react'
 
-import { Route, Routes, Link } from 'react-router'
+import UserProfile from './components/UserProfile'
 
-import CHAT_LOG from './assets/data/chat_log.json';
-import USERS from './assets/data/users.json';
-import UserProfile from './components/UserProfile';
+import { Link, Route, Routes } from 'react-router';
 import ChatPage from './components/ChatPage';
 import PageNotFound from './components/PageNotFound';
 
@@ -26,13 +24,19 @@ export default function App() {
 
   return (
     <div className="app">
+      <h1>Simple Chat</h1>
       <Routes>
-        <Route path="user/:userId" element={<UserProfile />} />
-        <Route index element={<ChatPage messages={messages} deleteMessage={deleteMessage} sendMessage={sendMessage}/>} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="user" element={<UserProfile />}>
+          <Route path=":userId" element={<UserProfile />} />
+        </Route>
+        <Route index element={<ChatPage messages={messages}
+                                        deleteMessage={deleteMessage}
+                                        sendMessage={sendMessage} />} />
+        <Route path="*" element={< PageNotFound />} />
       </Routes>
+
       <div className="user">
-        <Link to="/user"><img src={currentUser.image} /></Link>
+        <Link to="user"><img src={currentUser.image} /></Link>
       </div>
     </div>
   )

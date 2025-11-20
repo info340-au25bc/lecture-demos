@@ -1,8 +1,11 @@
-import { useParams } from 'react-router';
+import { useParams } from "react-router";
 
 function UserProfile({ user = {} }) {
+  const urlParams = useParams();
+  console.log(urlParams);
+
   const {
-    name = "Anonymous",
+    name = urlParams.userId || "Anonymous",
     avatar = "https://via.placeholder.com/96",
     email,
     location,
