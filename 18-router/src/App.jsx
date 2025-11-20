@@ -1,19 +1,15 @@
 import { useState } from 'react'
-import MessageList from './components/MessageList'
-import ComposeMessage from './components/ComposeMessage'
+
+import { Route, Routes, Link } from 'react-router'
+
+import CHAT_LOG from './assets/data/chat_log.json';
+import USERS from './assets/data/users.json';
+import UserProfile from './components/UserProfile';
+import ChatPage from './components/ChatPage';
+import PageNotFound from './components/PageNotFound';
 
 export default function App() {
-  const [messages, setMessages] = useState([
-    { id: 1, user: 'Orange', text: 'Hello!', timestamp: Date.now() - 1000 * 60 * 60 },
-    { id: 2, user: 'Bob', text: 'Hi Alice!', timestamp: Date.now() - 1000 * 60 * 30 },
-    { id: 3, user: 'Alice', text: 'How are things?', timestamp: Date.now() - 1000 * 60 * 30 }
-  ])
-
-  const USERS = [
-    { id: "Jax", username: "Jax", image: "/img/jax.png" },
-    { id: "Orange", username: "Orange", image: "/img/orange.png" },
-    { id: "Juice", username: "Juice", image: "/img/juice.png" },
-  ]
+  const [messages, setMessages] = useState(CHAT_LOG)
 
   const [currentUser, setCurrentUser] = useState(USERS[0]);
 
@@ -30,11 +26,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>Simple Chat</h1>
-      <MessageList messages={messages} onDelete={deleteMessage} />
-      <ComposeMessage onSend={sendMessage} />
+      <Routes>
+        <Route path="user/:userId" element={<UserProfile />} />
+        <Route index element={<ChatPage messages={messages} deleteMessage={deleteMessage} sendMessage={sendMessage}/>} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
       <div className="user">
-        <a href=""><img src={currentUser.image} /></a>
+        <Link to="/user"><img src={currentUser.image} /></Link>
       </div>
     </div>
   )

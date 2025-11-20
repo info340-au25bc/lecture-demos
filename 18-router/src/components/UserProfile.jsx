@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { useParams } from 'react-router';
 
 function UserProfile({ user = {} }) {
   const {
@@ -38,7 +37,11 @@ function UserProfile({ user = {} }) {
     bio: { marginTop: 8, color: "#333", fontSize: 13 },
   };
 
+  const { userId } = useParams();
+
   return (
+    <>
+    <h1>{userId}</h1>
     <div style={styles.container}>
       <img src={avatar} alt={`${name} avatar`} style={styles.avatar} />
       <div style={styles.info}>
@@ -48,17 +51,8 @@ function UserProfile({ user = {} }) {
         {bio && <p style={styles.bio}>{bio}</p>}
       </div>
     </div>
+    </>
   );
-};
-
-UserProfile.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    avatar: PropTypes.string,
-    email: PropTypes.string,
-    location: PropTypes.string,
-    bio: PropTypes.string,
-  }),
 };
 
 export default UserProfile;

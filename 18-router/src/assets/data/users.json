@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Jax",
+    "username": "Jax",
+    "image": "/img/jax.png"
+  },
+  {
+    "id": "Orange",
+    "username": "Orange",
+    "image": "/img/orange.png"
+  },
+  {
+    "id": "Juice",
+    "username": "Juice",
+    "image": "/img/juice.png"
+  }
+]

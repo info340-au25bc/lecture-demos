@@ -32,11 +32,7 @@ async function fetchAPOD() {
   }
 
   // TODO so fetching
-  fetch(url)
-    .then(statusCheck)
-    .then(res => res.json())
-    .then(processApodJson)
-    .catch(handleRequestError);
+  fetch(url);
 }
 
 
