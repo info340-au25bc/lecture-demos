@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "user": "Orange",
+    "text": "Hello!"
+  },
+  {
+    "id": 2,
+    "user": "Juice",
+    "text": "Hi Orange!"
+  },
+  {
+    "id": 3,
+    "user": "Orange",
+    "text": "How are things?"
+  }
+]
