@@ -37,7 +37,7 @@
   function startLong() {
     startTimes["long"] = new Date().getTime();
 
-    setTimeout(() => fibinnaci(42), 0);
+    setTimeout(() => fibonnaci(42), 0);
     setTimeout(() => timer("long"), HALF_SECOND);
   }
 
@@ -52,9 +52,9 @@
      (actual - HALF_SECOND) + "ms");
   }
 
-  function fibinnaci(n) {
+  function fibonacci(n) {
     if (n <= 1) return n;
-    return fibinnaci(n - 1) + fibinnaci(n - 2);
+    return fibonacci(n - 1) + fibonacci(n - 2);
   }
 
   function id(name) {

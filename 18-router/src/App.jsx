@@ -2,9 +2,12 @@ import { useState } from 'react'
 
 import UserProfile from './components/UserProfile'
 
-import { Link, Route, Routes } from 'react-router';
+import { Link, Route, Routes, Navigate } from 'react-router';
 import ChatPage from './components/ChatPage';
 import PageNotFound from './components/PageNotFound';
+
+import CHAT_LOG from './assets/data/chat_log.json';
+import USERS from './assets/data/users.json';
 
 export default function App() {
   const [messages, setMessages] = useState(CHAT_LOG)
@@ -33,10 +36,12 @@ export default function App() {
                                         deleteMessage={deleteMessage}
                                         sendMessage={sendMessage} />} />
         <Route path="*" element={< PageNotFound />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
 
       <div className="user">
         <Link to="user"><img src={currentUser.image} /></Link>
+        {/* <Navigate to="/user"><img src={currentUser.image} /></Navigate> */}
       </div>
     </div>
   )

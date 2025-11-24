@@ -2,7 +2,7 @@
 const URL = "https://api.nasa.gov/planetary/apod";
 
 //get api key here: https://api.nasa.gov
-const API_KEY = "DEMO_KEY";
+const API_KEY = "lgrydXsw993WpSXlnr9KocvTvGUdLjEUiHRFT9et";
 
 /**
  * Initialize the ajax button to call the correct function when pressed.
@@ -32,9 +32,8 @@ async function fetchAPOD() {
   }
 
   // TODO so fetching
-  fetch(url);
+  fetch(url)
 }
-
 
 /*
 Sample JSON Response from url: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
