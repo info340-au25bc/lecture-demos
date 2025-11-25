@@ -32,12 +32,47 @@ export default function MessageList(props) {
 
           <strong>{m.user}:</strong> {m.text}
 
-          <div>
-            <button className="edit-btn" onClick={toggleEditInput}>Edit</button>
-            <input type="text" style={{ visibility: 'hidden' }} defaultValue={m.text} />
+          <div className="messageMeta">
+            <div>
+              <button className="edit-btn" onClick={toggleEditInput}>Edit</button>
+              <input type="text" style={{ visibility: 'hidden' }} defaultValue={m.text} />
+            </div>
+
+            <div className="messageTimestamp">
+              {formatTimestamp(m.timestamp)}
+            </div>
           </div>
         </div>
       ))}
     </div>
   )
+}
+function formatTimestamp(ts) {
+  if (!ts) return '';
+  const d = ts instanceof Date ? ts : new Date(Number(ts));
+  if (isNaN(d.getTime())) return '';
+
+  const fmt = new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+
+  const parts = fmt.formatToParts(d);
+  const get = (type) => {
+    const p = parts.find((part) => part.type === type);
+    return p ? p.value : '';
+  };
+
+  const weekday = get('weekday');
+  const month = get('month');
+  const day = get('day');
+  const hour = get('hour');
+  const minute = get('minute');
+  const dayPeriod = get('dayPeriod');
+
+  return `${weekday}, ${month} ${day} ${hour}:${minute} ${dayPeriod}`;
 }

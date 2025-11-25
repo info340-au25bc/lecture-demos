@@ -2,16 +2,19 @@
   {
     "id": 1,
     "user": "Orange",
-    "text": "Hello!"
+    "text": "Hello!",
+    "timestamp": 1764023200000
   },
   {
     "id": 2,
     "user": "Juice",
-    "text": "Hi Orange!"
+    "text": "Hi Orange!",
+    "timestamp": 1764023212000
   },
   {
     "id": 3,
     "user": "Orange",
-    "text": "How are things?"
+    "text": "How are things?",
+    "timestamp": 1764023214000
   }
 ]

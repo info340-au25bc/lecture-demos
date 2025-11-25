@@ -121,3 +121,14 @@ body {
   color: #333;
   font-size: 13
 }
+
+.messageTimestamp {
+  padding-left: 4px;
+  font-size: 0.75rem;
+  color: rgb(127, 127, 127);
+}
+
+.messageMeta {
+  display: flex;
+  justify-content: space-between;
+}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import UserProfile from './components/UserProfile'
 
-import { Link, Route, Routes, Navigate } from 'react-router';
+import { Link, Route, Routes } from 'react-router';
 import ChatPage from './components/ChatPage';
 import PageNotFound from './components/PageNotFound';
 
@@ -10,13 +10,13 @@ import CHAT_LOG from './assets/data/chat_log.json';
 import USERS from './assets/data/users.json';
 
 function App() {
-  const [messages, setMessages] = useState(CHAT_LOG)
+  const [messages, setMessages] = useState(CHAT_LOG);
 
   const [currentUser, setCurrentUser] = useState(USERS[0]);
 
   function sendMessage(text) {
-    const nextId = messages.length + 1
-    const msg = { id: nextId, user: 'You', text, timestamp: Date.now() }
+    const nextId = messages.length + 1;
+    const msg = { id: nextId, user: 'You', text, timestamp: Date.now() };
     messages.push(msg)
     setMessages([...messages])
   }
